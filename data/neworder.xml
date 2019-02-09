@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<menu>
+    <restaurant>Kiku Sushi</restaurant>
+    <author>Jakob Garricks</author>
+    <nigiri>
+        <description>Thin slices of raw fish over pressed vinegared rice</description>
+        <item>
+            <name>Ebi</name>
+            <price>1.95</price>
+            <description>Prawn</description>
+        </item>
+        <item>
+            <name>Kani</name>
+            <vegetarian>yes</vegetarian>
+            <price>1.50</price>
+            <description>Imitation Crab</description>
+        </item>
+        <item>
+            <name>Amaebi</name>
+            <price>2.50</price>
+            <description>Sweet Shrimp</description>
+        </item>
+    </nigiri>
+    <maki>
+        <description>Rolls</description>
+        <item>
+            <name>Dynamite Roll</name>
+            <spicy>yes</spicy>
+            <price>6.50</price>
+        </item>
+        <item>
+            <name>Rock N Roll</name>
+            <price>10.95</price>
+            <description>Smoked Salmon, unagi, and Avocado</description>
+        </item>
+        <item>
+            <name>Prawn Temura Roll</name>
+            <price>5.95</price>
+        </item>
+    </maki>
+</menu>
