@@ -4,13 +4,15 @@ var xmldom = require('xmldom');
 const parse = require('csv-parse');
 var root = '';
 var userinput = process.argv[2]
+const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
+const status = "Active"
 //console.log(input)
 
 http.createServer(function (req, res) {
 	parser = new xmldom.DOMParser();
 	xmldoc = parser.parseFromString(`<${userinput}></${userinput}>`, 'text/xml');
 	root = xmldoc.documentElement;
-	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.writeHead(200, { 'Content-Type': 'text/html' });
 	result = '';
 	x = root.childNodes;
 
@@ -21,33 +23,42 @@ http.createServer(function (req, res) {
 		skip_empty_lines: true,
 		from_line: 2
 	})
-	.on('readable', function(){
-		let record
-		//console.log(userinput)
-	  	while (record = this.read()) {
-	   		//output.push(record)
-	    	makeXml(record,userinput)
-	  	}
-	})
-	.on('end', function(){
-	  	serializer = new xmldom.XMLSerializer();
-	    tosave = serializer.serializeToString(xmldoc);
-		fs.writeFileSync(`./data/201830-${userinput}.xml`,tosave);
-		result = show(x);
-		//console.log(result)
-		res.write(result);
-	    res.end(); //end the response
-	})
+		.on('readable', function () {
+			let record
+			//console.log(userinput)
+			while (record = this.read()) {
+				if (record[0] == status) {
+					if (weekdays.indexOf(record[5]) > -1) {
+						makeXml(record, userinput)
+					} else {
+						console.log('weekend');
+					}
+				} else {
+					console.log('Not Active')
+				}
+
+			}
+		})
+		.on('end', function () {
+			serializer = new xmldom.XMLSerializer();
+			tosave = serializer.serializeToString(xmldoc);
+			console.log(process.argv)
+			fs.writeFileSync(`./data/201830-${userinput}.xml`, tosave);
+			result = show(x);
+			//console.log(result)
+			res.write(result);
+			res.end(); //end the response
+		})
 
 
 }).listen(8080); //the server object listens on port 8080 
 
 function show(data) {
-	for(i=0; i< data.length; i++){
+	for (i = 0; i < data.length; i++) {
 		sub = x[i].childNodes
 		//console.log(x[i].nodeName)
 		result += `<h2>${x[i].nodeName}</h2><ul>`
-		for(n=0; n< sub.length; n++){
+		for (n = 0; n < sub.length; n++) {
 			courses = sub[n].childNodes
 			//console.log(courses[0].childNodes[0].nodeValue)
 			result += `<li>${courses[0].childNodes[0].nodeValue}</li>`
@@ -59,9 +70,9 @@ function show(data) {
 
 
 function makeXml(data, course) {
-	if(data[1].substring(0, 4) == course){
-		if(root.getElementsByTagName(data[1].substring(5, 8).replace(/ /g,"_"))[0] == undefined){
-			newItem = xmldoc.createElement(data[1].substring(5, 8).replace(/ /g,"_"));
+	if (data[1].substring(0, 4) == course) {
+		if (root.getElementsByTagName(data[1].substring(5, 8).replace(/ /g, "_"))[0] == undefined) {
+			newItem = xmldoc.createElement(data[1].substring(5, 8).replace(/ /g, "_"));
 			root.appendChild(newItem)
 		}
 		//create elements
@@ -101,6 +112,6 @@ function makeXml(data, course) {
 		course.appendChild(max)
 		course.appendChild(act)
 		course.appendChild(hrs)
-		root.getElementsByTagName(data[1].substring(5, 8).replace(/ /g,"_"))[0].appendChild(course);  
+		root.getElementsByTagName(data[1].substring(5, 8).replace(/ /g, "_"))[0].appendChild(course);
 	}
 }
