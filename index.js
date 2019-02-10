@@ -32,63 +32,29 @@ http.createServer(function (req, res) {
 	.on('end', function(){
 	  	serializer = new xmldom.XMLSerializer();
 	    tosave = serializer.serializeToString(xmldoc);
-
-	    fs.writeFileSync(`./data/${userinput}.xml`,tosave);
-	    // for(i = 0; i < x.length; i++) {
-		//    	if (x[i].nodeName == 'kids') {
-		//    		head = '<h2>Kids</h2>' +
-		//    			'<b>Kids food</b>'
-		//    		res.write(head);
-		// 		// for(n=0; n<x[i].getElementsByTagName('item').length; n++){
-		// 	    // 	result += showSushi(x[i].getElementsByTagName('item')[n]);
-		// 	    // }
-		// 	    res.write('<ul>'+result+'</ul>');
-		//    	}
-		// }
-
-		
+		fs.writeFileSync(`./data/201830-${userinput}.xml`,tosave);
+		result = show(x);
+		//console.log(result)
+		res.write(result);
 	    res.end(); //end the response
 	})
 
 
 }).listen(8080); //the server object listens on port 8080 
 
-function show(Sushi) {
-    name = '';
-    price = '';
-	disc = 'N/A';
-	spy = 'no'
-	vgt = 'no'
-	choices = Sushi.childNodes;
-	for (cc = 0; cc < choices.length; cc++) {
-	    switch (choices[cc].nodeName) {
-	    	case('name'):
-	            name = choices[cc];
-	            continue;
-	        case('price'):
-	            price = choices[cc];
-	            continue;
-	        case('description'):
-	            disc = choices[cc];
-	            continue;
-	        case('vegetarian'):
-	        	vgt = 'yes';
-	        	continue;
-	        case('spicy'):
-	        	spy = 'yes';
-	        	continue;
-	    }
+function show(data) {
+	for(i=0; i< data.length; i++){
+		sub = x[i].childNodes
+		//console.log(x[i].nodeName)
+		result += `<h2>${x[i].nodeName}</h2><ul>`
+		for(n=0; n< sub.length; n++){
+			courses = sub[n].childNodes
+			//console.log(courses[0].childNodes[0].nodeValue)
+			result += `<li>${courses[0].childNodes[0].nodeValue}</li>`
+		}
+		result += `</ul>`
 	}
-	result = '<li>Name: ' + name + '</br>';
-	if(spy == 'yes'){
-		result += '<img src="https://cdn0.iconfinder.com/data/icons/food-2-11/128/food-29-512.png" height="30" width="30"></br>';
-	}
-	if(vgt == 'yes'){
-		result += '<img src="https://cdn1.iconfinder.com/data/icons/alternate-foods/512/alternate_foods-33-512.png" height="30" width="30"></br>';
-	}
-	result += 'Price: ' + price + '</br>' +
-	        'Dicription: ' + disc +'</br></br></li>';
-    return result;
+	return result
 }
 
 
