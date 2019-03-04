@@ -13,5 +13,13 @@
     "csv": "^5.1.1",
     "nodemon": "^1.18.10",
     "xmldom": "^0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jakob-G/xml_assignment1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jakob-G/xml_assignment1/issues"
+  },
+  "homepage": "https://github.com/Jakob-G/xml_assignment1#readme"
 }
