@@ -8,6 +8,7 @@ var userinput = process.argv[2].toUpperCase();
 const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
 const status = "Active"
 //console.log(input)
+var teachers = [];
 
 http.createServer(function (req, res) {
 	parser = new xmldom.DOMParser();
@@ -19,6 +20,7 @@ http.createServer(function (req, res) {
 	result = '';
 	student = root.childNodes;
 	teacher = root2.childNodes;
+	
 
 	const input = fs.readFileSync('data/Subject_Course_Timetables.csv')
 	const output = []
@@ -35,7 +37,7 @@ http.createServer(function (req, res) {
 					if (weekdays.indexOf(record[5]) > -1) {
 						//creates the xml
 						makeStudentXml(record, userinput)
-						makeTeacherXml(record, userinput)
+						makeTeacherList(record, userinput)
 					} else {
 					}
 				} else {
@@ -44,34 +46,80 @@ http.createServer(function (req, res) {
 			}
 		})
 		.on('end', function () {
+			parse(input, {
+				trim: true,
+				skip_empty_lines: true,
+				from_line: 17
+		})
+			.on('readable', function () {
+				let record
+				//filters the data to remove inactive and weekend classes
+				while (record = this.read()) {
+					if (record[0] == status) {
+						if (weekdays.indexOf(record[5]) > -1) {
+							//creates the xml
+							makeTeacherXml(record, teachers)
+						}
+					}
+				}
+			})
+			.on('end', function () {
+				serializer = new xmldom.XMLSerializer();
+				tosave2 = serializer.serializeToString(xmldoc2);
+				tosave=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> ${tosave}`;
+				fs.writeFileSync(`./data/201830-${userinput}-Teacher.xml`, tosave2);
+				if(req.url == '/teachers'){
+					result = showTeacher(teacher)
+					//console.log(result)
+					res.write(result);
+					res.end();
+				}
+				
+			})
 			serializer = new xmldom.XMLSerializer();
 			tosave = serializer.serializeToString(xmldoc);
-			tosave2 = serializer.serializeToString(xmldoc2);
+			
 			//adds the xml version and doctipe tags
 			tosave=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> ${tosave}`;
 			//tosave=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> ${tosave}`;
 			fs.writeFileSync(`./data/201830-${userinput}.xml`, tosave);
-			fs.writeFileSync(`./data/201830-${userinput}-Teacher.xml`, tosave2);
-			if(req.url == '/teachers'){
-				result = showTeacher(teacher)
-			}
-			else{
-				result = showStudent(student);
-			}
 			
+			if(req.url == '/'){
+				result = showStudent(student)
+				res.write(result);
+				res.end();
+			}
+		
 			//console.log(result)
-			res.write(result);
-			res.end();
+			
 		})
 
 
 }).listen(8080); //the server object listens on port 8080 
 
 function showStudent(data) {
+	//console.log(data)
 	for (i = 0; i < data.length; i++) {
 		sub = data[i].childNodes
 		//adds the headder
 		result += `<h2>${data[i].nodeName}</h2><ul>`
+		for (n = 0; n < sub.length; n++) {
+			courses = sub[n].childNodes
+			//adds a line in the list
+			result += `<li>${courses[0].childNodes[0].nodeValue} : ${courses[1].childNodes[0].nodeValue} from ${courses[2].childNodes[0].nodeValue} - ${courses[3].childNodes[0].nodeValue} in room ${courses[6].childNodes[0].nodeValue}</li>`
+		}
+		result += `</ul>`
+	}
+	return result
+}
+
+function showTeacher(data) {
+	//console.log(root2.childNodes.length)
+	for (i = 0; i < root2.childNodes.length; i++) {
+		sub = root2.childNodes[i].childNodes
+		//console.log(root2.childNodes[i].nodeName)
+		//adds the headder
+		result += `<h2>${root2.childNodes[i].nodeName}</h2><ul>`
 		for (n = 0; n < sub.length; n++) {
 			courses = sub[n].childNodes
 			//adds a line in the list
@@ -87,30 +135,43 @@ function makeStudentXml(data, course) {
 	//makes sure it is the right course / program (acit ect.)
 	if (data[1].substring(0, 4) == course) {
 		//checks if there is a existing set for the data if not it makes one
-		if (root.getElementsByTagName(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`)[0] == undefined) {
-			newItem = xmldoc.createElement(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`);
-			root.appendChild(newItem)
+		pos=0
+		make=true
+		ckCourse = false
+		ckBlock = false
+		c=0
+		b=0
+		//check for existing set
+		while(pos<root.getElementsByTagName('Set').length){
+			if (root.getElementsByTagName(`Set`)[pos].attributes[0].value == data[1].substring(5, 8).replace(/ /g, "_")) {
+				make=false
+				break
+			}
+			pos++
 		}
 		z=0
-		make=true
-		//checks if there is already an existing couse (some courses have multiple teachers) add the teacher to the couse if true
-		//  .replace(/ /g, "_") turns spaces into _'s as they are better for the xml element names
-		while(z<root.getElementsByTagName(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`)[0].childNodes.length){
-			if(root.getElementsByTagName(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`)[0].childNodes[z].childNodes[0].childNodes[0].nodeValue == data[3] && 
-			root.getElementsByTagName(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`)[0].childNodes[z].childNodes[2].childNodes[0].nodeValue == data[6] &&
-			root.getElementsByTagName(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`)[0].childNodes[z].childNodes[1].childNodes[0].nodeValue == data[5] ){
-				teacher = xmldoc.createElement('Teacher');
-				teacher.textContent = data[8].trim();
-				root.getElementsByTagName(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`)[0].childNodes[z].appendChild(teacher)
-				make = false;
-				break;
-			}
-			z++
-		}
+		//add new set if needed
 		if(make == true){
+			newItem = xmldoc.createElement(`Set`);
+			newItem.setAttribute('name',`${data[1].substring(5, 8).replace(/ /g, "_")}`)
+			//console.log(newItem.attributes[0].value)
+			root.appendChild(newItem)
+		}
+		else{
+		//chceck for existing course
+		//if there is an existing course check for exiseting block(day, sTime, eTime)
+		//if course == true && block == true ---> add teacher only
+		//if course == true && block == false ---> add new block
+		//if course == false --- > add new course
+		}
+		//add new course
+		console.log(data[3].replace(/\*/g, '').trim())
+		console.log(ckCourse)
+		console.log(ckBlock)
+		if(ckCourse == false){
 			//create elements
+			block = xmldoc.createElement('Block')
 			course = xmldoc.createElement('Course');
-			name = xmldoc.createElement('Name');
 			day = xmldoc.createElement('Day');
 			sTime = xmldoc.createElement('Start_Time');
 			eTime = xmldoc.createElement('End_Time');
@@ -123,7 +184,7 @@ function makeStudentXml(data, course) {
 			hrs = xmldoc.createElement('Hrs');
 			//add text to elements
 			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
-			name.textContent = data[3].replace(/\*/g, '').trim();
+			course.setAttribute('name',data[3].replace(/\*/g, '').trim())
 			day.textContent = data[5].replace(/\*/g, '').trim();
 			sTime.textContent = data[6].replace(/\*/g, '').trim();
 			eTime.textContent = data[7].replace(/\*/g, '').trim();
@@ -135,26 +196,33 @@ function makeStudentXml(data, course) {
 			hrs.textContent = data[14].replace(/\*/g, '').trim();
 			teacher.textContent = data[8].replace(/\*/g, '').trim();
 			//append to root
-			course.appendChild(name)
-			course.appendChild(day)
-			course.appendChild(sTime)
-			course.appendChild(eTime)
-			course.appendChild(sDate)
-			course.appendChild(eDate)
-			course.appendChild(room)
-			course.appendChild(max)
-			course.appendChild(act)
-			course.appendChild(hrs)
-			course.appendChild(teacher)
-			root.getElementsByTagName(`set_${data[1].substring(5, 8).replace(/ /g, "_")}`)[0].appendChild(course);
+			block.appendChild(day)
+			block.appendChild(sTime)
+			block.appendChild(eTime)
+			block.appendChild(sDate)
+			block.appendChild(eDate)
+			block.appendChild(room)
+			block.appendChild(max)
+			block.appendChild(act)
+			block.appendChild(hrs)
+			block.appendChild(teacher)
+			course.appendChild(block)
+			root.getElementsByTagName(`Set`)[pos].appendChild(course);
 		}
 	}
 }
-
-function makeTeacherXml(data, course) {
-	//makes sure it is the right course / program (acit ect.)
+function makeTeacherList(data, course){
 	if (data[1].substring(0, 4) == course && data[8].length > 2) {
-		console.log(data[8])
+		if(teachers.indexOf(data[8]) == -1){
+			teachers.push(data[8])
+			//console.log(data[8])
+		}
+	}
+}
+function makeTeacherXml(data, list) {
+	//makes sure it is the right teacher
+	if (list.indexOf(data[8]) > -1) {
+		//console.log(data[8])
 		//checks if there is a existing teacher catagory for the data if not it makes one
 		if (root2.getElementsByTagName(`${data[8].replace(/\*|\,|\'/g, '').trim().replace(/ /g, '_')}`)[0] == undefined) {
 			newItem = xmldoc2.createElement(`${data[8].replace(/\*|\,|\'/g, '').trim().replace(/ /g, '_')}`);
@@ -164,10 +232,10 @@ function makeTeacherXml(data, course) {
 		make=true
 		//checks if there is already an existing couse (some courses have multiple sets) add the teacher to the couse if true
 		//  .replace(/ /g, "_") turns spaces into _'s as they are better for the xml element names
-		// while(z<root.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes.length){
-		// 	if(root.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[0].childNodes[0].nodeValue == data[3] && 
-		// 	root.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[2].childNodes[0].nodeValue == data[6] &&
-		// 	root.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[1].childNodes[0].nodeValue == data[5] ){
+		// while(z<root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes.length){
+		// 	if(root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[0].childNodes[0].nodeValue == data[3] && 
+		// 	root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[2].childNodes[0].nodeValue == data[6] &&
+		// 	root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[1].childNodes[0].nodeValue == data[5] ){
 		// 		teacher = xmldoc2.createElement('Teacher');
 		// 		teacher.textContent = data[8].trim();
 		// 		root.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].appendChild(teacher)

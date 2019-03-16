@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE classes SYSTEM "classes.dtd">
+<classes>
+    <Set name='1_A'>
+        <Course name='CIVL1011'>
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>1030</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>04 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>SW01 1021</Room>
+                <Max>84</Max>
+                <Act>81</Act>
+                <Hrs>0.83</Hrs>
+                <Teacher>Nishimura, Kim</Teacher>
+                <Teacher>Gaudet, Jacquie</Teacher>
+                <Teacher>Chong, Phyllis Lok-Ting</Teacher>
+            </Block>
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>1230</Start_Time>
+                <End_Time>1420</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>SE12 318</Room>
+                <Max>21</Max>
+                <Act>21</Act>
+                <Hrs>1.83</Hrs>
+                <Teacher>Chong, Phyllis Lok-Ting</Teacher>
+                <Teacher>* Gaudet, Jacquie</Teacher>
+                <Teacher>Nishimura, Kim</Teacher>
+            </Block>
+        </Course>
+    </Set>
+</classes>
