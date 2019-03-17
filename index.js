@@ -102,12 +102,11 @@ function showStudent(data) {
 	for (i = 0; i < data.length; i++) {
 		sub = data[i].childNodes
 		//adds the headder
-		result += `<h2>${data[i].nodeName}</h2><ul>`
+		result += `<h2>${data[i].nodeName} ${data[i].attributes[0].value}</h2><ul>`
 		for (n = 0; n < sub.length; n++) {
 			courses = sub[n].childNodes
 			//adds a line in the list
-			result += `<li>${courses[0].childNodes[0].nodeValue} : ${courses[1].childNodes[0].nodeValue} from ${courses[2].childNodes[0].nodeValue} - ${courses[3].childNodes[0].nodeValue} in room ${courses[6].childNodes[0].nodeValue}</li>`
-		}
+			result += `<li>${sub[n].attributes[0].value}</li>`	}
 		result += `</ul>`
 	}
 	return result
@@ -132,6 +131,12 @@ function showTeacher(data) {
 
 
 function makeStudentXml(data, course) {
+	//chceck for existing course
+	//if there is an existing course check for exiseting block(day, sTime, eTime)
+	//if course == true && block == true ---> add teacher only
+	//if course == true && block == false ---> add new block
+	//if course == false --- > add new course
+
 	//makes sure it is the right course / program (acit ect.)
 	if (data[1].substring(0, 4) == course) {
 		//checks if there is a existing set for the data if not it makes one
@@ -158,16 +163,73 @@ function makeStudentXml(data, course) {
 			root.appendChild(newItem)
 		}
 		else{
-		//chceck for existing course
-		//if there is an existing course check for exiseting block(day, sTime, eTime)
-		//if course == true && block == true ---> add teacher only
-		//if course == true && block == false ---> add new block
-		//if course == false --- > add new course
+			for(x in root.getElementsByTagName(`Set`)[pos].childNodes){
+				if (isNaN(parseInt(x)) == false){
+					if(root.getElementsByTagName(`Set`)[pos].childNodes[x].attributes[0].value == data[3].replace(/\*/g, '').trim()){
+						ckCourse = true
+						c = x
+					}
+				}
+			}
+			if(ckCourse == true){
+				for(y in root.getElementsByTagName(`Set`)[pos].childNodes[c].childNodes){
+					if (isNaN(parseInt(y)) == false){
+						if(root.getElementsByTagName(`Set`)[pos].childNodes[c].childNodes[y].childNodes[0].childNodes[0].data == data[5].replace(/\*/g, '').trim() ||
+							root.getElementsByTagName(`Set`)[pos].childNodes[c].childNodes[y].childNodes[1].childNodes[0].data == data[6].replace(/\*/g, '').trim() ||
+							root.getElementsByTagName(`Set`)[pos].childNodes[c].childNodes[y].childNodes[2].childNodes[0].data == data[7].replace(/\*/g, '').trim()){
+								ckBlock = true
+								b = y
+						}
+					}
+				}
+			}
 		}
-		//add new course
-		console.log(data[3].replace(/\*/g, '').trim())
-		console.log(ckCourse)
-		console.log(ckBlock)
+		if(ckBlock == true){
+			teacher = xmldoc.createElement('Teacher');
+			//add text to elements
+			teacher.textContent = data[8].replace(/\*/g, '').trim();
+			//append to root
+			block.appendChild(teacher)
+			root.getElementsByTagName(`Set`)[pos].childNodes[c].childNodes[b].appendChild(teacher);
+		}
+		if(ckCourse == true){
+			//create elements
+			block = xmldoc.createElement('Block')
+			day = xmldoc.createElement('Day');
+			sTime = xmldoc.createElement('Start_Time');
+			eTime = xmldoc.createElement('End_Time');
+			teacher = xmldoc.createElement('Teacher');
+			sDate = xmldoc.createElement('Start_Date');
+			eDate = xmldoc.createElement('End_Date');
+			room = xmldoc.createElement('Room');
+			max = xmldoc.createElement('Max');
+			act = xmldoc.createElement('Act');
+			hrs = xmldoc.createElement('Hrs');
+			//add text to elements
+			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
+			day.textContent = data[5].replace(/\*/g, '').trim();
+			sTime.textContent = data[6].replace(/\*/g, '').trim();
+			eTime.textContent = data[7].replace(/\*/g, '').trim();
+			sDate.textContent = data[10].replace(/\*/g, '').trim();
+			eDate.textContent = data[11].replace(/\*/g, '').trim();
+			room.textContent = data[9].replace(/\*/g, '').trim();
+			max.textContent = data[12].replace(/\*/g, '').trim();
+			act.textContent = data[13].replace(/\*/g, '').trim();
+			hrs.textContent = data[14].replace(/\*/g, '').trim();
+			teacher.textContent = data[8].replace(/\*/g, '').trim();
+			//append to root
+			block.appendChild(day)
+			block.appendChild(sTime)
+			block.appendChild(eTime)
+			block.appendChild(sDate)
+			block.appendChild(eDate)
+			block.appendChild(room)
+			block.appendChild(max)
+			block.appendChild(act)
+			block.appendChild(hrs)
+			block.appendChild(teacher)
+			root.getElementsByTagName(`Set`)[pos].childNodes[c].appendChild(block);
+		}
 		if(ckCourse == false){
 			//create elements
 			block = xmldoc.createElement('Block')
@@ -211,6 +273,7 @@ function makeStudentXml(data, course) {
 		}
 	}
 }
+
 function makeTeacherList(data, course){
 	if (data[1].substring(0, 4) == course && data[8].length > 2) {
 		if(teachers.indexOf(data[8]) == -1){
@@ -230,20 +293,6 @@ function makeTeacherXml(data, list) {
 		}
 		z=0
 		make=true
-		//checks if there is already an existing couse (some courses have multiple sets) add the teacher to the couse if true
-		//  .replace(/ /g, "_") turns spaces into _'s as they are better for the xml element names
-		// while(z<root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes.length){
-		// 	if(root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[0].childNodes[0].nodeValue == data[3] && 
-		// 	root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[2].childNodes[0].nodeValue == data[6] &&
-		// 	root2.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].childNodes[1].childNodes[0].nodeValue == data[5] ){
-		// 		teacher = xmldoc2.createElement('Teacher');
-		// 		teacher.textContent = data[8].trim();
-		// 		root.getElementsByTagName(`${data[8].replace(/\*/g, '').trim()}`)[0].childNodes[z].appendChild(teacher)
-		// 		make = false;
-		// 		break;
-		// 	}
-		// 	z++
-		// }
 		if(make == true){
 			//create elements
 			course = xmldoc2.createElement('Course');

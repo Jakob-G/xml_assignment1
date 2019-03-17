@@ -1,1 +1,703 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> <classes><Set name="1_A"><Course name="ACIT1420"><Block><Day>Fri</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Zhang, Lei</Teacher></Block></Course><Course name="ACIT1515"><Block><Day>Mon</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Lane, Thomas F</Teacher></Block></Course><Course name="ACIT1620"><Block><Day>Wed</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Hart, Richard</Teacher></Block></Course><Course name="ACIT1630"><Block><Day>Thu</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Yu, Benjamin</Teacher></Block></Course><Course name="COMM1116"><Block><Day>Mon</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Rockall, Matthew</Teacher></Block></Course><Course name="MATH1310"><Block><Day>Thu</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Hajikolaei, Kambiz Haji</Teacher></Block></Course><Course name="ORGB1100"><Block><Day>Tue</Day><Start_Time>830</Start_Time><End_Time>1050</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>23</Act><Hrs>2.33</Hrs><Teacher>Morgan, Peter A</Teacher></Block></Course></Set><Set name="1_B"><Course name="ACIT1420"><Block><Day>Wed</Day><Start_Time>1130</Start_Time><End_Time>1420</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Zhang, Lei</Teacher></Block></Course><Course name="ACIT1515"><Block><Day>Fri</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Lane, Thomas F</Teacher></Block></Course><Course name="ACIT1620"><Block><Day>Tue</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Hart, Richard</Teacher></Block></Course><Course name="ACIT1630"><Block><Day>Thu</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Yu, Benjamin</Teacher></Block></Course><Course name="COMM1116"><Block><Day>Mon</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>22</Act><Hrs>2.83</Hrs><Teacher>Rockall, Matthew</Teacher></Block></Course><Course name="MATH1310"><Block><Day>Fri</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Hajikolaei, Kambiz Haji</Teacher></Block></Course><Course name="ORGB1100"><Block><Day>Tue</Day><Start_Time>1330</Start_Time><End_Time>1550</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>21</Act><Hrs>2.33</Hrs><Teacher>Morgan, Peter A</Teacher></Block></Course></Set><Set name="1_C"><Course name="ACIT1420"><Block><Day>Tue</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 590</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Zhang, Lei</Teacher></Block></Course><Course name="ACIT1515"><Block><Day>Mon</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>26</Act><Hrs>2.83</Hrs><Teacher>Lane, Thomas F</Teacher></Block></Course><Course name="ACIT1620"><Block><Day>Thu</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Hart, Richard</Teacher></Block></Course><Course name="ACIT1630"><Block><Day>Fri</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Yu, Benjamin</Teacher></Block></Course><Course name="COMM1116"><Block><Day>Tue</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 652</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Rockall, Matthew</Teacher></Block></Course><Course name="MATH1310"><Block><Day>Fri</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Hajikolaei, Kambiz Haji</Teacher></Block></Course><Course name="ORGB1100"><Block><Day>Wed</Day><Start_Time>830</Start_Time><End_Time>1050</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 676</Room><Max>25</Max><Act>25</Act><Hrs>2.33</Hrs><Teacher>Morgan, Peter A</Teacher></Block></Course></Set><Set name="2_A"><Course name="ACIT2420"><Block><Day>Tue</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Parry, James</Teacher></Block></Course><Course name="ACIT2515"><Block><Day>Mon</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 652</Room><Max>25</Max><Act>21</Act><Hrs>2.83</Hrs><Teacher>Mulder, Mike</Teacher></Block></Course><Course name="ACIT2520"><Block><Day>Wed</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Aibin, Michal</Teacher></Block></Course><Course name="ACIT2620"><Block><Day>Thu</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 590</Room><Max>25</Max><Act>22</Act><Hrs>2.83</Hrs><Teacher>Lane, Thomas F</Teacher></Block></Course><Course name="ACIT2831"><Block><Day>Fri</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 590</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Lord, Trevor Dean</Teacher></Block></Course><Course name="COMM2216"><Block><Day>Thu</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 652</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Jamensky, Derek Allan</Teacher></Block></Course><Course name="MATH1350"><Block><Day>Mon</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Hajikolaei, Kambiz Haji</Teacher></Block></Course></Set><Set name="2_B"><Course name="ACIT2420"><Block><Day>Wed</Day><Start_Time>1130</Start_Time><End_Time>1420</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>22</Act><Hrs>2.83</Hrs><Teacher>Parry, James</Teacher></Block></Course><Course name="ACIT2515"><Block><Day>Mon</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 652</Room><Max>25</Max><Act>17</Act><Hrs>2.83</Hrs><Teacher>Mulder, Mike</Teacher></Block></Course><Course name="ACIT2520"><Block><Day>Tue</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>17</Act><Hrs>2.83</Hrs><Teacher>Parry, James</Teacher></Block></Course><Course name="ACIT2620"><Block><Day>Thu</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>13</Act><Hrs>2.83</Hrs><Teacher>Lane, Thomas F</Teacher></Block></Course><Course name="ACIT2831"><Block><Day>Fri</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>19</Act><Hrs>2.83</Hrs><Teacher>Lord, Trevor Dean</Teacher></Block></Course><Course name="COMM2216"><Block><Day>Thu</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 652</Room><Max>25</Max><Act>16</Act><Hrs>2.83</Hrs><Teacher>Jamensky, Derek Allan</Teacher></Block></Course><Course name="MATH1350"><Block><Day>Mon</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>18</Act><Hrs>2.83</Hrs><Teacher>Hajikolaei, Kambiz Haji</Teacher></Block></Course></Set><Set name="3_A"><Course name="ACIT3420"><Block><Day>Mon</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Zhang, Lei</Teacher></Block></Course><Course name="ACIT3475"><Block><Day>Thu</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC</Room><Max>25</Max><Act>0</Act><Hrs>2.83</Hrs><Teacher>,</Teacher></Block></Course><Course name="ACIT3640"><Block><Day>Tue</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>25</Act><Hrs>2.83</Hrs><Teacher>Klug, Bill</Teacher></Block></Course><Course name="ACIT3645"><Block><Day>Thu</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>22</Act><Hrs>2.83</Hrs><Teacher>O'Connor, Flynn</Teacher></Block></Course><Course name="ACIT3771"><Block><Day>Mon</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 590</Room><Max>25</Max><Act>22</Act><Hrs>2.83</Hrs><Teacher>Shah, Vidhi</Teacher></Block></Course><Course name="ACIT3900"><Block><Day>Fri</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 590</Room><Max>25</Max><Act>20</Act><Hrs>2.83</Hrs><Teacher>Aibin, Michal</Teacher></Block></Course><Course name="ACIT3910"><Block><Day>Tue</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 590</Room><Max>25</Max><Act>24</Act><Hrs>2.83</Hrs><Teacher>Guichon, Patrick J</Teacher></Block></Course></Set><Set name="3_B"><Course name="ACIT3420"><Block><Day>Mon</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>20</Act><Hrs>2.83</Hrs><Teacher>Zhang, Lei</Teacher></Block></Course><Course name="ACIT3640"><Block><Day>Tue</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 578</Room><Max>25</Max><Act>19</Act><Hrs>2.83</Hrs><Teacher>Klug, Bill</Teacher></Block></Course><Course name="ACIT3650"><Block><Day>Thu</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>39</Act><Hrs>2.83</Hrs><Teacher>Aibin, Michal</Teacher></Block></Course><Course name="ACIT3771"><Block><Day>Mon</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 590</Room><Max>25</Max><Act>19</Act><Hrs>2.83</Hrs><Teacher>Shah, Vidhi</Teacher></Block></Course><Course name="ACIT3895"><Block><Day>Thu</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>19</Act><Hrs>2.83</Hrs><Teacher>Aibin, Michal</Teacher></Block></Course><Course name="ACIT3900"><Block><Day>Fri</Day><Start_Time>830</Start_Time><End_Time>1120</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 581</Room><Max>25</Max><Act>20</Act><Hrs>2.83</Hrs><Teacher>Aibin, Michal</Teacher></Block></Course><Course name="ACIT3910"><Block><Day>Tue</Day><Start_Time>1330</Start_Time><End_Time>1620</End_Time><Start_Date>05 Sep 2018</Start_Date><End_Date>07 Dec 2018</End_Date><Room>DTC 552</Room><Max>25</Max><Act>19</Act><Hrs>2.83</Hrs><Teacher>Guichon, Patrick J</Teacher></Block></Course></Set></classes>
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd">
+<classes>
+    <Set name="1_A">
+        <Course name="ACIT1420">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Zhang, Lei</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1515">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Lane, Thomas F</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1620">
+            <Block>
+                <Day>Wed</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hart, Richard</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1630">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Yu, Benjamin</Teacher>
+            </Block>
+        </Course>
+        <Course name="COMM1116">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Rockall, Matthew</Teacher>
+            </Block>
+        </Course>
+        <Course name="MATH1310">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hajikolaei, Kambiz Haji</Teacher>
+            </Block>
+        </Course>
+        <Course name="ORGB1100">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1050</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>23</Act>
+                <Hrs>2.33</Hrs>
+                <Teacher>Morgan, Peter A</Teacher>
+            </Block>
+        </Course>
+    </Set>
+    <Set name="1_B">
+        <Course name="ACIT1420">
+            <Block>
+                <Day>Wed</Day>
+                <Start_Time>1130</Start_Time>
+                <End_Time>1420</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Zhang, Lei</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1515">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Lane, Thomas F</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1620">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hart, Richard</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1630">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Yu, Benjamin</Teacher>
+            </Block>
+        </Course>
+        <Course name="COMM1116">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>22</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Rockall, Matthew</Teacher>
+            </Block>
+        </Course>
+        <Course name="MATH1310">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hajikolaei, Kambiz Haji</Teacher>
+            </Block>
+        </Course>
+        <Course name="ORGB1100">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1550</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>21</Act>
+                <Hrs>2.33</Hrs>
+                <Teacher>Morgan, Peter A</Teacher>
+            </Block>
+        </Course>
+    </Set>
+    <Set name="1_C">
+        <Course name="ACIT1420">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 590</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Zhang, Lei</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1515">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>26</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Lane, Thomas F</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1620">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hart, Richard</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT1630">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Yu, Benjamin</Teacher>
+            </Block>
+        </Course>
+        <Course name="COMM1116">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 652</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Rockall, Matthew</Teacher>
+            </Block>
+        </Course>
+        <Course name="MATH1310">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hajikolaei, Kambiz Haji</Teacher>
+            </Block>
+        </Course>
+        <Course name="ORGB1100">
+            <Block>
+                <Day>Wed</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1050</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 676</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.33</Hrs>
+                <Teacher>Morgan, Peter A</Teacher>
+            </Block>
+        </Course>
+    </Set>
+    <Set name="2_A">
+        <Course name="ACIT2420">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Parry, James</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2515">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 652</Room>
+                <Max>25</Max>
+                <Act>21</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Mulder, Mike</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2520">
+            <Block>
+                <Day>Wed</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Aibin, Michal</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2620">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 590</Room>
+                <Max>25</Max>
+                <Act>22</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Lane, Thomas F</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2831">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 590</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Lord, Trevor Dean</Teacher>
+            </Block>
+        </Course>
+        <Course name="COMM2216">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 652</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Jamensky, Derek Allan</Teacher>
+            </Block>
+        </Course>
+        <Course name="MATH1350">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hajikolaei, Kambiz Haji</Teacher>
+            </Block>
+        </Course>
+    </Set>
+    <Set name="2_B">
+        <Course name="ACIT2420">
+            <Block>
+                <Day>Wed</Day>
+                <Start_Time>1130</Start_Time>
+                <End_Time>1420</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>22</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Parry, James</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2515">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 652</Room>
+                <Max>25</Max>
+                <Act>17</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Mulder, Mike</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2520">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>17</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Parry, James</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2620">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>13</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Lane, Thomas F</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT2831">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>19</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Lord, Trevor Dean</Teacher>
+            </Block>
+        </Course>
+        <Course name="COMM2216">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 652</Room>
+                <Max>25</Max>
+                <Act>16</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Jamensky, Derek Allan</Teacher>
+            </Block>
+        </Course>
+        <Course name="MATH1350">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>18</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Hajikolaei, Kambiz Haji</Teacher>
+            </Block>
+        </Course>
+    </Set>
+    <Set name="3_A">
+        <Course name="ACIT3420">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Zhang, Lei</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3475">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC</Room>
+                <Max>25</Max>
+                <Act>0</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>,</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3640">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>25</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Klug, Bill</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3645">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>22</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>O'Connor, Flynn</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3771">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 590</Room>
+                <Max>25</Max>
+                <Act>22</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Shah, Vidhi</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3900">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 590</Room>
+                <Max>25</Max>
+                <Act>20</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Aibin, Michal</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3910">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 590</Room>
+                <Max>25</Max>
+                <Act>24</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Guichon, Patrick J</Teacher>
+            </Block>
+        </Course>
+    </Set>
+    <Set name="3_B">
+        <Course name="ACIT3420">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>20</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Zhang, Lei</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3640">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 578</Room>
+                <Max>25</Max>
+                <Act>19</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Klug, Bill</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3650">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>39</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Aibin, Michal</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3771">
+            <Block>
+                <Day>Mon</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 590</Room>
+                <Max>25</Max>
+                <Act>19</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Shah, Vidhi</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3895">
+            <Block>
+                <Day>Thu</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>19</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Aibin, Michal</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3900">
+            <Block>
+                <Day>Fri</Day>
+                <Start_Time>830</Start_Time>
+                <End_Time>1120</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 581</Room>
+                <Max>25</Max>
+                <Act>20</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Aibin, Michal</Teacher>
+            </Block>
+        </Course>
+        <Course name="ACIT3910">
+            <Block>
+                <Day>Tue</Day>
+                <Start_Time>1330</Start_Time>
+                <End_Time>1620</End_Time>
+                <Start_Date>05 Sep 2018</Start_Date>
+                <End_Date>07 Dec 2018</End_Date>
+                <Room>DTC 552</Room>
+                <Max>25</Max>
+                <Act>19</Act>
+                <Hrs>2.83</Hrs>
+                <Teacher>Guichon, Patrick J</Teacher>
+            </Block>
+        </Course>
+    </Set>
+</classes>
