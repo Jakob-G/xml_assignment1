@@ -118,12 +118,12 @@ function showTeacher(data) {
 		sub = root2.childNodes[i].childNodes
 		//console.log(root2.childNodes[i].nodeName)
 		//adds the headder
-		result += `<h2>${root2.childNodes[i].nodeName}</h2><ul>`
+		result += `<h2>${root2.childNodes[i].attributes[0].value}</h2><ul>`
 		for (n = 0; n < sub.length; n++) {
 			courses = sub[n].childNodes
 			//adds a line in the list
-			result += `<li>${courses[0].childNodes[0].nodeValue} : ${courses[1].childNodes[0].nodeValue} from ${courses[2].childNodes[0].nodeValue} - ${courses[3].childNodes[0].nodeValue} in room ${courses[6].childNodes[0].nodeValue}</li>`
-		}
+			result += `<li>${sub[n].attributes[0].value}</li>`
+			}
 		result += `</ul>`
 	}
 	return result
@@ -283,32 +283,62 @@ function makeTeacherList(data, course){
 	}
 }
 function makeTeacherXml(data, list) {
-	//makes sure it is the right teacher
+	//chceck for existing course
+	//if there is an existing course check for exiseting block(day, sTime, eTime)
+	//if course == true && block == true ---> add teacher only
+	//if course == true && block == false ---> add new block
+	//if course == false --- > add new course
+
+	//makes sure it is the right course / program (acit ect.)
 	if (list.indexOf(data[8]) > -1) {
-		//console.log(data[8])
-		//checks if there is a existing teacher catagory for the data if not it makes one
-		if (root2.getElementsByTagName(`${data[8].replace(/\*|\,|\'/g, '').trim().replace(/ /g, '_')}`)[0] == undefined) {
-			newItem = xmldoc2.createElement(`${data[8].replace(/\*|\,|\'/g, '').trim().replace(/ /g, '_')}`);
-			root2.appendChild(newItem)
+		//checks if there is a existing set for the data if not it makes one
+		pos=0
+		make=true
+		ckCourse = false
+		ckBlock = false
+		c=0
+		b=0
+		//check for existing set
+		while(pos<root2.getElementsByTagName('Teacher').length){
+			if (root2.getElementsByTagName(`Teacher`)[pos].attributes[0].value == data[8].replace(/\*|\,/g, '').trim().replace(/ /g, '_')) {
+				make=false
+				break
+			}
+			pos++
 		}
 		z=0
-		make=true
+		//add new set if needed
 		if(make == true){
+			newItem = xmldoc.createElement(`Teacher`);
+			newItem.setAttribute('name',`${data[8].replace(/\*|\,/g, '').trim().replace(/ /g, '_')}`)
+			//console.log(newItem.attributes[0].value)
+			root2.appendChild(newItem)
+		}
+		else{
+			for(x in root2.getElementsByTagName(`Teacher`)[pos].childNodes){
+				if (isNaN(parseInt(x)) == false){
+					if(root2.getElementsByTagName(`Teacher`)[pos].childNodes[x].attributes[0].value == data[3].replace(/\*/g, '').trim()){
+						ckCourse = true
+						c = x
+					}
+				}
+			}
+		}
+		if(ckCourse == true){
 			//create elements
-			course = xmldoc2.createElement('Course');
-			name = xmldoc2.createElement('Name');
-			day = xmldoc2.createElement('Day');
-			sTime = xmldoc2.createElement('Start_Time');
-			eTime = xmldoc2.createElement('End_Time');
-			sDate = xmldoc2.createElement('Start_Date');
-			eDate = xmldoc2.createElement('End_Date');
-			room = xmldoc2.createElement('Room');
-			max = xmldoc2.createElement('Max');
-			act = xmldoc2.createElement('Act');
-			hrs = xmldoc2.createElement('Hrs');
+			block = xmldoc.createElement('Block')
+			day = xmldoc.createElement('Day');
+			sTime = xmldoc.createElement('Start_Time');
+			eTime = xmldoc.createElement('End_Time');
+			teacher = xmldoc.createElement('Teacher');
+			sDate = xmldoc.createElement('Start_Date');
+			eDate = xmldoc.createElement('End_Date');
+			room = xmldoc.createElement('Room');
+			max = xmldoc.createElement('Max');
+			act = xmldoc.createElement('Act');
+			hrs = xmldoc.createElement('Hrs');
 			//add text to elements
 			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
-			name.textContent = data[3].replace(/\*/g, '').trim();
 			day.textContent = data[5].replace(/\*/g, '').trim();
 			sTime.textContent = data[6].replace(/\*/g, '').trim();
 			eTime.textContent = data[7].replace(/\*/g, '').trim();
@@ -319,17 +349,54 @@ function makeTeacherXml(data, list) {
 			act.textContent = data[13].replace(/\*/g, '').trim();
 			hrs.textContent = data[14].replace(/\*/g, '').trim();
 			//append to root
-			course.appendChild(name)
-			course.appendChild(day)
-			course.appendChild(sTime)
-			course.appendChild(eTime)
-			course.appendChild(sDate)
-			course.appendChild(eDate)
-			course.appendChild(room)
-			course.appendChild(max)
-			course.appendChild(act)
-			course.appendChild(hrs)
-			root2.getElementsByTagName(`${data[8].replace(/\*|\,|\'/g, '').trim().replace(/ /g, '_')}`)[0].appendChild(course);
+			block.appendChild(day)
+			block.appendChild(sTime)
+			block.appendChild(eTime)
+			block.appendChild(sDate)
+			block.appendChild(eDate)
+			block.appendChild(room)
+			block.appendChild(max)
+			block.appendChild(act)
+			block.appendChild(hrs)
+			root2.getElementsByTagName(`Teacher`)[pos].childNodes[c].appendChild(block);
+		}
+		if(ckCourse == false){
+			//create elements
+			block = xmldoc.createElement('Block')
+			course = xmldoc.createElement('Course');
+			day = xmldoc.createElement('Day');
+			sTime = xmldoc.createElement('Start_Time');
+			eTime = xmldoc.createElement('End_Time');
+			sDate = xmldoc.createElement('Start_Date');
+			eDate = xmldoc.createElement('End_Date');
+			room = xmldoc.createElement('Room');
+			max = xmldoc.createElement('Max');
+			act = xmldoc.createElement('Act');
+			hrs = xmldoc.createElement('Hrs');
+			//add text to elements
+			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
+			course.setAttribute('name',data[3].replace(/\*/g, '').trim())
+			day.textContent = data[5].replace(/\*/g, '').trim();
+			sTime.textContent = data[6].replace(/\*/g, '').trim();
+			eTime.textContent = data[7].replace(/\*/g, '').trim();
+			sDate.textContent = data[10].replace(/\*/g, '').trim();
+			eDate.textContent = data[11].replace(/\*/g, '').trim();
+			room.textContent = data[9].replace(/\*/g, '').trim();
+			max.textContent = data[12].replace(/\*/g, '').trim();
+			act.textContent = data[13].replace(/\*/g, '').trim();
+			hrs.textContent = data[14].replace(/\*/g, '').trim();
+			//append to root
+			block.appendChild(day)
+			block.appendChild(sTime)
+			block.appendChild(eTime)
+			block.appendChild(sDate)
+			block.appendChild(eDate)
+			block.appendChild(room)
+			block.appendChild(max)
+			block.appendChild(act)
+			block.appendChild(hrs)
+			course.appendChild(block)
+			root2.getElementsByTagName(`Teacher`)[pos].appendChild(course);
 		}
 	}
 }
