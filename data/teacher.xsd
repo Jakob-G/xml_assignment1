@@ -1,0 +1,37 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Teachers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Teacher" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Course" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Block" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Day"/>
+                          <xs:element type="xs:short" name="Start_Time"/>
+                          <xs:element type="xs:short" name="End_Time"/>
+                          <xs:element type="xs:string" name="Start_Date"/>
+                          <xs:element type="xs:string" name="End_Date"/>
+                          <xs:element type="xs:string" name="Room"/>
+                          <xs:element type="xs:byte" name="Max"/>
+                          <xs:element type="xs:byte" name="Act"/>
+                          <xs:element type="xs:float" name="Hrs"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="name" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

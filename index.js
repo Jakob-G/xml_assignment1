@@ -2,12 +2,12 @@ var fs = require('fs');
 var http = require('http');
 var xmldom = require('xmldom');
 const parse = require('csv-parse');
+var validator = require('xsd-schema-validator');
 var root = '';
 var root2 = '';
 var userinput = process.argv[2].toUpperCase();
 const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
 const status = "Active"
-//console.log(input)
 var teachers = [];
 
 http.createServer(function (req, res) {
@@ -31,11 +31,10 @@ http.createServer(function (req, res) {
 	})
 		.on('readable', function () {
 			let record
-			//filters the data to remove inactive and weekend classes
 			while (record = this.read()) {
 				if (record[0] == status) {
 					if (weekdays.indexOf(record[5]) > -1) {
-						//creates the xml
+						//creates the xml and the teacher list
 						makeStudentXml(record, userinput)
 						makeTeacherList(record, userinput)
 					} else {
@@ -57,7 +56,7 @@ http.createServer(function (req, res) {
 				while (record = this.read()) {
 					if (record[0] == status) {
 						if (weekdays.indexOf(record[5]) > -1) {
-							//creates the xml
+							//creates the teacher xml
 							makeTeacherXml(record, teachers)
 						}
 					}
@@ -66,38 +65,52 @@ http.createServer(function (req, res) {
 			.on('end', function () {
 				serializer = new xmldom.XMLSerializer();
 				tosave2 = serializer.serializeToString(xmldoc2);
-				tosave2=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "teacher.dtd"> ${tosave2}`;
+				//line to add dtd validation
+				tosave2=`<?xml version="1.0" encoding="UTF-8"?> ${tosave2}`;
 				fs.writeFileSync(`./data/201830-${userinput}-Teacher.xml`, tosave2);
-				if(req.url == '/teachers'){
-					result = showTeacher(teacher)
-					//console.log(result)
-					res.write(result);
-					res.end();
-				}
-				
+				validator.validateXML(tosave2, 'data/teacher.xsd', function(err, result) {
+					if (err) {
+					  console.log(result);
+					  res.write('Teacher not Valid');
+					}
+					else{
+						console.log('Teacher valid')
+						if(req.url == '/teachers'){
+							result = showTeacher(teacher)
+							res.write(result);
+							res.end();
+						}
+					}
+					result.valid; // true
+				  }); 				
 			})
 			serializer = new xmldom.XMLSerializer();
 			tosave = serializer.serializeToString(xmldoc);
 			
 			//adds the xml version and doctipe tags
-			tosave=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> ${tosave}`;
+			tosave=`<?xml version="1.0" encoding="UTF-8"?>${tosave}`;
 			fs.writeFileSync(`./data/201830-${userinput}.xml`, tosave);
-			
-			if(req.url == '/'){
-				result = showStudent(student)
-				res.write(result);
-				res.end();
-			}
-		
-			//console.log(result)
-			
+			validator.validateXML(tosave, 'data/student.xsd', function(err, result) {
+				if (err) {
+				  console.log(result);
+				  res.write('Student not Valid');
+				}
+				else{
+					console.log('Student valid')
+					if(req.url == '/'){
+						result = showStudent(student)
+						res.write(result);
+						res.end();
+					}
+				}
+				result.valid;
+			  }); 
 		})
 
 
-}).listen(8080); //the server object listens on port 8080 
+}).listen(8080);
 
 function showStudent(data) {
-	//console.log(data)
 	for (i = 0; i < data.length; i++) {
 		sub = data[i].childNodes
 		//adds the headder
@@ -112,10 +125,8 @@ function showStudent(data) {
 }
 
 function showTeacher(data) {
-	//console.log(root2.childNodes.length)
 	for (i = 0; i < root2.childNodes.length; i++) {
 		sub = root2.childNodes[i].childNodes
-		//console.log(root2.childNodes[i].nodeName)
 		//adds the headder
 		result += `<h2>${root2.childNodes[i].attributes[0].value}</h2><ul>`
 		for (n = 0; n < sub.length; n++) {
@@ -130,15 +141,8 @@ function showTeacher(data) {
 
 
 function makeStudentXml(data, course) {
-	//chceck for existing course
-	//if there is an existing course check for exiseting block(day, sTime, eTime)
-	//if course == true && block == true ---> add teacher only
-	//if course == true && block == false ---> add new block
-	//if course == false --- > add new course
-
 	//makes sure it is the right course / program (acit ect.)
 	if (data[1].substring(0, 4) == course) {
-		//checks if there is a existing set for the data if not it makes one
 		pos=0
 		make=true
 		ckCourse = false
@@ -158,7 +162,6 @@ function makeStudentXml(data, course) {
 		if(make == true){
 			newItem = xmldoc.createElement(`Set`);
 			newItem.setAttribute('name',`${data[1].substring(5, 8).replace(/ /g, "_")}`)
-			//console.log(newItem.attributes[0].value)
 			root.appendChild(newItem)
 		}
 		else{
@@ -185,9 +188,7 @@ function makeStudentXml(data, course) {
 		}
 		if(ckBlock == true){
 			teacher = xmldoc.createElement('Teacher');
-			//add text to elements
 			teacher.textContent = data[8].replace(/\*/g, '').trim();
-			//append to root
 			block.appendChild(teacher)
 			root.getElementsByTagName(`Set`)[pos].childNodes[c].childNodes[b].appendChild(teacher);
 		}
@@ -205,7 +206,6 @@ function makeStudentXml(data, course) {
 			act = xmldoc.createElement('Act');
 			hrs = xmldoc.createElement('Hrs');
 			//add text to elements
-			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
 			day.textContent = data[5].replace(/\*/g, '').trim();
 			sTime.textContent = data[6].replace(/\*/g, '').trim();
 			eTime.textContent = data[7].replace(/\*/g, '').trim();
@@ -244,7 +244,6 @@ function makeStudentXml(data, course) {
 			act = xmldoc.createElement('Act');
 			hrs = xmldoc.createElement('Hrs');
 			//add text to elements
-			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
 			course.setAttribute('name',data[3].replace(/\*/g, '').trim())
 			day.textContent = data[5].replace(/\*/g, '').trim();
 			sTime.textContent = data[6].replace(/\*/g, '').trim();
@@ -277,27 +276,19 @@ function makeTeacherList(data, course){
 	if (data[1].substring(0, 4) == course && data[8].length > 2) {
 		if(teachers.indexOf(data[8]) == -1){
 			teachers.push(data[8])
-			//console.log(data[8])
 		}
 	}
 }
 function makeTeacherXml(data, list) {
-	//chceck for existing course
-	//if there is an existing course check for exiseting block(day, sTime, eTime)
-	//if course == true && block == true ---> add teacher only
-	//if course == true && block == false ---> add new block
-	//if course == false --- > add new course
-
-	//makes sure it is the right course / program (acit ect.)
+	//makes sure it is the right teaacher
 	if (list.indexOf(data[8]) > -1) {
-		//checks if there is a existing set for the data if not it makes one
 		pos=0
 		make=true
 		ckCourse = false
 		ckBlock = false
 		c=0
 		b=0
-		//check for existing set
+		//check for existing teacher
 		while(pos<root2.getElementsByTagName('Teacher').length){
 			if (root2.getElementsByTagName(`Teacher`)[pos].attributes[0].value == data[8].replace(/\*|\,/g, '').trim().replace(/ /g, '_')) {
 				make=false
@@ -306,11 +297,10 @@ function makeTeacherXml(data, list) {
 			pos++
 		}
 		z=0
-		//add new set if needed
+		//add new teacher if needed
 		if(make == true){
 			newItem = xmldoc.createElement(`Teacher`);
 			newItem.setAttribute('name',`${data[8].replace(/\*|\,/g, '').trim().replace(/ /g, '_')}`)
-			//console.log(newItem.attributes[0].value)
 			root2.appendChild(newItem)
 		}
 		else{
@@ -337,7 +327,6 @@ function makeTeacherXml(data, list) {
 			act = xmldoc.createElement('Act');
 			hrs = xmldoc.createElement('Hrs');
 			//add text to elements
-			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
 			day.textContent = data[5].replace(/\*/g, '').trim();
 			sTime.textContent = data[6].replace(/\*/g, '').trim();
 			eTime.textContent = data[7].replace(/\*/g, '').trim();
@@ -373,7 +362,6 @@ function makeTeacherXml(data, list) {
 			act = xmldoc.createElement('Act');
 			hrs = xmldoc.createElement('Hrs');
 			//add text to elements
-			//  .replace(/\*/g, '').trim()  is used to remove *'s and leading and trailing whitespace
 			course.setAttribute('name',data[3].replace(/\*/g, '').trim())
 			day.textContent = data[5].replace(/\*/g, '').trim();
 			sTime.textContent = data[6].replace(/\*/g, '').trim();
