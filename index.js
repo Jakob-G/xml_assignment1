@@ -12,8 +12,8 @@ var teachers = [];
 
 http.createServer(function (req, res) {
 	parser = new xmldom.DOMParser();
-	xmldoc = parser.parseFromString(`<classes></classes>`, 'text/xml');
-	xmldoc2 = parser.parseFromString(`<classes></classes>`, 'text/xml');
+	xmldoc = parser.parseFromString(`<Classes></Classes>`, 'text/xml');
+	xmldoc2 = parser.parseFromString(`<Teachers></Teachers>`, 'text/xml');
 	root = xmldoc.documentElement;
 	root2 = xmldoc2.documentElement;
 	res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -66,7 +66,7 @@ http.createServer(function (req, res) {
 			.on('end', function () {
 				serializer = new xmldom.XMLSerializer();
 				tosave2 = serializer.serializeToString(xmldoc2);
-				tosave=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> ${tosave}`;
+				tosave2=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "teacher.dtd"> ${tosave2}`;
 				fs.writeFileSync(`./data/201830-${userinput}-Teacher.xml`, tosave2);
 				if(req.url == '/teachers'){
 					result = showTeacher(teacher)
@@ -81,7 +81,6 @@ http.createServer(function (req, res) {
 			
 			//adds the xml version and doctipe tags
 			tosave=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> ${tosave}`;
-			//tosave=`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE classes SYSTEM "classes.dtd"> ${tosave}`;
 			fs.writeFileSync(`./data/201830-${userinput}.xml`, tosave);
 			
 			if(req.url == '/'){
