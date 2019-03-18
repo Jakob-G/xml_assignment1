@@ -66,7 +66,7 @@ http.createServer(function (req, res) {
 				serializer = new xmldom.XMLSerializer();
 				tosave2 = serializer.serializeToString(xmldoc2);
 				//line to add dtd validation
-				tosave2=`<?xml version="1.0" encoding="UTF-8"?> ${tosave2}`;
+				tosave2=`<?xml version="1.0"?> <?xml-stylesheet type='text/xsl' href='teacher.xsl'?> <!DOCTYPE SHOWS SYSTEM "data\\teacher.dtd"> ${tosave2}`;
 				fs.writeFileSync(`./data/201830-${userinput}-Teacher.xml`, tosave2);
 				validator.validateXML(tosave2, 'data/teacher.xsd', function(err, result) {
 					if (err) {
@@ -88,7 +88,9 @@ http.createServer(function (req, res) {
 			tosave = serializer.serializeToString(xmldoc);
 			
 			//adds the xml version and doctipe tags
-			tosave=`<?xml version="1.0" encoding="UTF-8"?>${tosave}`;
+			tosave=`<?xml version="1.0"?> <?xml-stylesheet type='text/xsl' href='student.xsl'?> <!DOCTYPE SHOWS SYSTEM "data\\classes.dtd">${tosave}`;
+			
+
 			fs.writeFileSync(`./data/201830-${userinput}.xml`, tosave);
 			validator.validateXML(tosave, 'data/student.xsd', function(err, result) {
 				if (err) {
