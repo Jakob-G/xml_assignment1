@@ -1,0 +1,50 @@
+<?xml version="1.0"?><?xml-stylesheet type='text/xsl' href='sushi.xsl'?>
+<menu>
+    <restaurant>Kiku Sushi</restaurant>
+    <author>Jakob Garricks</author>
+    <nigiri>
+        <description>Thin slices of raw fish over pressed vinegared rice</description>
+        <item name="Ebi">
+            <price>1.95</price>
+            <description>Prawn</description>
+        </item>
+        <item name="Kani">
+            <price>1.50</price>
+            <description>Imitation Crab</description>
+            <vegetarian>yes</vegetarian>
+        </item>
+        <item name="Amaebi">
+            <price>2.50</price>
+            <description>Sweet Shrimp</description>
+        </item>
+    </nigiri>
+    <maki>
+        <description>Rolls</description>
+        <item name="Dynamite Roll">
+            <price>6.50</price>
+            <spicy>yes</spicy>
+        </item>
+        <item name="Rock N Roll">
+            <price>10.95</price>
+            <description>Smoked Salmon, unagi, and Avocado</description>
+        </item>
+        <item name="Prawn Temura Roll">
+            <price>5.95</price>
+        </item>
+    </maki>
+    <kids>
+        <item name="Ninja Nuggets">
+            <price>6.99</price>
+            <description>All natural chicken chunks grilled to perfection, served with ranch, honey mustard or BBQ sauce</description>
+        </item>
+        <item name="PB and J Sushi Roll">
+            <price>6.99</price>
+            <description>All natural peanut butter and jelly rolled inside of white bread. Cut into bite-sized pieces</description>
+            <vegetarian>yes</vegetarian>
+        </item>
+        <item name="The Cowfish Mini-Burgers">
+            <price>6.99</price>
+            <description>Two beef mini-burgers topped with American cheese</description>
+        </item>
+    </kids>
+</menu>
