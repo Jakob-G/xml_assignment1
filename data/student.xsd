@@ -1,0 +1,115 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Classes">
+    <xs:annotation>
+      <xs:documentation>The root element
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Set" maxOccurs="unbounded" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A set in the program can have many courses
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Course" maxOccurs="unbounded" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>one of the couses that the set takes can be held on multiple days and multiple times per day
+                  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Block">
+                      <xs:annotation>
+                        <xs:documentation>one session of a coures that a set is takeing
+                        </xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Day">
+                            <xs:annotation>
+                              <xs:documentation>the day that the block is on
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:short" name="Start_Time">
+                            <xs:annotation>
+                              <xs:documentation>the start time of this block
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:short" name="End_Time">
+                            <xs:annotation>
+                              <xs:documentation>the end time of this block
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Start_Date">
+                            <xs:annotation>
+                              <xs:documentation>the starting day of this block
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="End_Date">
+                            <xs:annotation>
+                              <xs:documentation>the end date of this block
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Room">
+                            <xs:annotation>
+                              <xs:documentation>the room the class will be held in
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:byte" name="Max">
+                            <xs:annotation>
+                              <xs:documentation>the Max number of students that can be in the class
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:byte" name="Act">
+                            <xs:annotation>
+                              <xs:documentation>the number of students that are in the class
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:float" name="Hrs">
+                            <xs:annotation>
+                              <xs:documentation>the total hours this class will run
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Teacher">
+                            <xs:annotation>
+                              <xs:documentation>the teacher in chage of this class
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="name" use="required">
+                    <xs:annotation>
+                      <xs:documentation>the name of the course
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name" use="required">
+              <xs:annotation>
+                <xs:documentation>the name of the set
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,9 +1,9 @@
-<!ELEMENT Classes (Set+)>
-<!ELEMENT Set (Course+)>
-<!ATTLIST Set name CDATA #REQUIRED>
+<!ELEMENT Teachers (Teacher+)>
+<!ELEMENT Teacher (Course+)>
+<!ATTLIST Teacher name CDATA #REQUIRED>
 <!ATTLIST Course name CDATA #REQUIRED>
 <!ELEMENT Course (Block+)>
-<!ELEMENT Block (Day,Start_Time,End_Time,Start_Date,End_Date,Room,Max,Act,Hrs,Teacher+)>
+<!ELEMENT Block (Day,Start_Time,End_Time,Start_Date,End_Date,Room,Max,Act,Hrs)>
 <!ELEMENT Name (#PCDATA)>
 <!ELEMENT Day (#PCDATA)>
 <!ELEMENT Start_Time (#PCDATA)>
@@ -14,4 +14,3 @@
 <!ELEMENT Max (#PCDATA)>
 <!ELEMENT Act (#PCDATA)>
 <!ELEMENT Hrs (#PCDATA)>
-<!ELEMENT Teacher (#PCDATA)>
